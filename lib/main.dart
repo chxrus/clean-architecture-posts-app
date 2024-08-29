@@ -1,6 +1,6 @@
 import 'package:clean_architecture_posts/config/theme/app_themes.dart';
-import 'package:clean_architecture_posts/features/anime_posts/presentation/bloc/waifu/local/local_waifu_bloc.dart';
-import 'package:clean_architecture_posts/features/anime_posts/presentation/bloc/waifu/remote/remote_waifu_bloc.dart';
+import 'package:clean_architecture_posts/features/anime_posts/presentation/bloc/waifu/local/local_waifus_bloc.dart';
+import 'package:clean_architecture_posts/features/anime_posts/presentation/bloc/waifu/remote/remote_waifus_bloc.dart';
 import 'package:clean_architecture_posts/features/anime_posts/presentation/pages/home/waifu_posts.dart';
 import 'package:clean_architecture_posts/injection_container.dart';
 import 'package:flutter/material.dart';
@@ -19,10 +19,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<RemoteWaifuBloc>(
+        BlocProvider<RemoteWaifusBloc>(
           create: (context) => sl()..add(const GetWaifusEvent()),
         ),
-        BlocProvider<LocalWaifuBloc>(
+        BlocProvider<LocalWaifusBloc>(
           create: (context) => sl()..add(const GetSavedWaifusEvent()),
         ),
       ],
